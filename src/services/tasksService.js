@@ -53,8 +53,8 @@ const updateTask = async (id, bodyData) => {
 };
 
 const deleteTask = async (id) => {
-  const deleteStatus = await tasksModel.deleteTask(id);
-  if (deleteStatus === 0) throw ERROR_MSG_2;
+  await getTaskById(id);
+  await tasksModel.deleteTask(id);
   return null;
 };
 

@@ -42,9 +42,9 @@ const updateTask = async (id, bodyData) => {
 
 const deleteTask = async (id) => {
   const conn = await connect();
-  const { deletedCount } = await conn.collection('tasks')
+  await conn.collection('tasks')
     .deleteOne({ _id: ObjectId(id) });
-  return deletedCount;
+  return null;
 };
 
 module.exports = {
